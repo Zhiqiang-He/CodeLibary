@@ -28,9 +28,9 @@ public class GraphTest {
     @Test
     public void testCommonGraph() {
         Graph graph = new Graph(4);
-        graph.adEdge(0,1);
-        graph.adEdge(0,2);
-        graph.adEdge(0,3);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(0, 3);
         System.out.println(graph.toString());
         assertEquals(graph.adj(1).size(), 1);
         assertEquals(graph.adj(2).size(), 2);
@@ -42,20 +42,20 @@ public class GraphTest {
     @Test
     public void testLoopGraph() {
         Graph graph = new Graph(13);
-        graph.adEdge(0,5);
-        graph.adEdge(4,3);
-        graph.adEdge(0,1);
-        graph.adEdge(9,12);
-        graph.adEdge(6,4);
-        graph.adEdge(5,4);
-        graph.adEdge(0,2);
-        graph.adEdge(11,12);
-        graph.adEdge(9,10);
-        graph.adEdge(0,6);
-        graph.adEdge(7,8);
-        graph.adEdge(9,11);
-        graph.adEdge(5,3);
-        graph.adEdge(0,0);
+        graph.addEdge(0, 5);
+        graph.addEdge(4, 3);
+        graph.addEdge(0, 1);
+        graph.addEdge(9, 12);
+        graph.addEdge(6, 4);
+        graph.addEdge(5, 4);
+        graph.addEdge(0, 2);
+        graph.addEdge(11, 12);
+        graph.addEdge(9, 10);
+        graph.addEdge(0, 6);
+        graph.addEdge(7, 8);
+        graph.addEdge(9, 11);
+        graph.addEdge(5, 3);
+        graph.addEdge(0, 0);
         System.out.println(graph.toString());
         assertEquals(graph.adj(1).size(), 1);
         //自环，节点会重复添加

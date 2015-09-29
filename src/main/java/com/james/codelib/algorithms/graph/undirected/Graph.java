@@ -69,7 +69,7 @@ public class Graph {
      *
      * @return
      */
-    public void adEdge(int v, int w) {
+    public void addEdge(int v, int w) {
         //将V添加到W的邻接表中
         adj.get(v).add(w);
         //将W添加到v的邻接表中

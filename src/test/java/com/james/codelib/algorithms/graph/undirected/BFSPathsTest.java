@@ -21,8 +21,6 @@ package com.james.codelib.algorithms.graph.undirected;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by James.Hez on 2015/9/25.
  */
@@ -31,14 +29,14 @@ public class BFSPathsTest {
     @Test
     public void Test1() {
         Graph g = new Graph(6);
-        g.adEdge(0, 1);
-        g.adEdge(0, 2);
-        g.adEdge(0, 5);
-        g.adEdge(1, 2);
-        g.adEdge(2, 4);
-        g.adEdge(3, 2);
-        g.adEdge(3, 4);
-        g.adEdge(3, 5);
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
+        g.addEdge(0, 5);
+        g.addEdge(1, 2);
+        g.addEdge(2, 4);
+        g.addEdge(3, 2);
+        g.addEdge(3, 4);
+        g.addEdge(3, 5);
 
         //开始节点
         int s = 0;
