@@ -17,7 +17,7 @@
  *
  */
 
-package com.james.codelib.algorithms.graph.undirected;
+package com.james.codelib.algorithms.graph.directed;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Queues;
@@ -34,7 +34,7 @@ import java.util.Stack;
  */
 public class BFSPaths extends Paths {
 
-    private Graph graph = null;
+    private DirectedGraph graph = null;
 
     /**
      * 顶点是否已经被标记
@@ -52,7 +52,7 @@ public class BFSPaths extends Paths {
     private int start;
 
 
-    public BFSPaths(Graph g, int s) {
+    public BFSPaths(DirectedGraph g, int s) {
         graph = g;
         marked = new boolean[g.verticesNumber()];
         edgeTo = new int[g.verticesNumber()];

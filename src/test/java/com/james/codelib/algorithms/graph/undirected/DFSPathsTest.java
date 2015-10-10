@@ -19,6 +19,7 @@
 
 package com.james.codelib.algorithms.graph.undirected;
 
+import com.james.codelib.algorithms.graph.Paths;
 import org.junit.Test;
 
 /**

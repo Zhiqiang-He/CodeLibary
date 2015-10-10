@@ -17,46 +17,44 @@
  *
  */
 
-package com.james.codelib.algorithms.graph.undirected;
+package com.james.codelib.algorithms.graph.directed;
 
-import com.james.codelib.algorithms.graph.Paths;
+import com.google.common.collect.Lists;
 import org.junit.Test;
 
 /**
- * Created by James.Hez on 2015/9/25.
+ * Created by James.Hez on 2015/10/10.
  */
-public class BFSPathsTest {
-
+public class DirectedDFSTest {
     @Test
     public void Test1() {
-        Graph g = new Graph(6);
-        g.addEdge(0, 1);
-        g.addEdge(0, 2);
-        g.addEdge(0, 5);
-        g.addEdge(1, 2);
-        g.addEdge(2, 4);
-        g.addEdge(3, 2);
-        g.addEdge(3, 4);
-        g.addEdge(3, 5);
+        SymbolGraph g = new SymbolGraph(Lists.newArrayList("0", "1", "2", "3", "4", "5"));
+        g.addEdge("0", "1");
+        g.addEdge("0", "2");
+        g.addEdge("0", "5");
+        g.addEdge("1", "2");
+        g.addEdge("2", "4");
+        g.addEdge("3", "2");
+        g.addEdge("3", "4");
+        g.addEdge("3", "5");
 
         //开始节点
-        int s = 0;
+        String s = "0";
 
-        Paths dfs = new BFSPaths(g, s);
-
-        for (int v = 0; v < g.verticesNumber(); v++) {
+        DirectedDFS dfs = new DirectedDFS(g, s);
+        for (String v : g.getVertices()) {
             System.out.print(s + " to " + v + ": ");
             if (dfs.hasPathTo(v)) {
-                for (int x : dfs.pathTo(v)) {
-                    if (x == s) {
+                for (String x : dfs.pathTo(v)) {
+                    if (x.equals(s)) {
                         System.out.print(x);
                     } else {
                         System.out.print("-" + x);
                     }
-
                 }
             }
             System.out.println();
         }
+
     }
 }

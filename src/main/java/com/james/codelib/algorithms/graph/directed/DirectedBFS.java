@@ -17,28 +17,44 @@
  *
  */
 
-package com.james.codelib.algorithms.graph.undirected;
+package com.james.codelib.algorithms.graph.directed;
+
+import com.google.common.collect.Lists;
 
 import java.util.List;
 
 /**
- * Created by James.Hez on 2015/9/24.
+ * Created by James.Hez on 2015/10/10.
  */
-public abstract class Paths {
+public class DirectedBFS {
+
+    private SymbolGraph graph = null;
+
 
     /**
-     * 是否存在从S到V的路径
-     *
-     * @param v
-     * @return
+     * 起点
      */
-    public abstract boolean hasPathTo(int v);
+    private String start;
 
-    /**
-     * 从S到V的路径，如果不存在则返回null
-     *
-     * @param v
-     * @return
-     */
-    public abstract List<Integer> pathTo(int v);
+
+    private BFSPaths unDirectedBFS;
+
+    public DirectedBFS(SymbolGraph g, String s) {
+        graph = g;
+        start = s;
+        unDirectedBFS = new BFSPaths(g.getGraph(), g.getValue(s));
+    }
+
+    public boolean hasPathTo(String v) {
+        return unDirectedBFS.hasPathTo(graph.getValue(v));
+    }
+
+    public List<String> pathTo(String v) {
+        List<Integer> unDirectedResutls = unDirectedBFS.pathTo(graph.getValue(v));
+        List<String> directedResults = Lists.newArrayList();
+        for (Integer i : unDirectedResutls) {
+            directedResults.add(graph.getKey(i));
+        }
+        return directedResults;
+    }
 }
